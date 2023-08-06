@@ -73,7 +73,7 @@ edges
 boundary
 (
 
-    inlet
+    outlet
     {
         type patch;
         faces
