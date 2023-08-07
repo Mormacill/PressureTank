@@ -13,7 +13,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Uinlet          10;
+vFR #calc "((2e-3 / 60) / 360)";
 
 dimensions      [0 1 -1 0 0 0 0];
 
@@ -21,20 +21,24 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    inlet
+    outlet
     {
-        type            flowRateInletVelocity;
-        meanVelocity    constant $Uinlet;
-        value           uniform (0 0 0);
+        type                flowRateOutletVelocity;
+        volumetricFlowRate  $vFR;
+        value               uniform (0 0 0);
     }
 
-    atmosphere
+    tank
     {
-        type            pressureInletOutletVelocity;
-        value           uniform (0 0 0);
+        type                noSlip;
     }
 
-    #includeEtc "caseDicts/setConstraintTypes"
+    "(front|back)"
+    {
+        type  wedge;
+    }
+
+//    #includeEtc "caseDicts/setConstraintTypes"
 }
 
 // ************************************************************************* //

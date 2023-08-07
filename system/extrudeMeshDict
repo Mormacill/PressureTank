@@ -23,7 +23,7 @@ extrudeModel        wedge;
 
 sectorCoeffs
 {
-    axisPt          (0 -0.013 0.1);
+    axisPt          (-0.03 -0.013 0);
     axis            (1 0 0);
     angle           1;
 }

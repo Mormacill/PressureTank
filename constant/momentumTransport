@@ -13,8 +13,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType RAS;
+simulationType laminar;
 
+/*
 RAS
 {
     model               kOmegaSST;
@@ -47,5 +48,5 @@ LES
         maxDeltaRatio   1.1;
     }
 }
-
+*/
 // ************************************************************************* //

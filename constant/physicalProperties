@@ -14,8 +14,33 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-viscosityModel  constant;
+thermoType
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
 
-nu              1.5e-05;
+mixture //Methane
+{
+    specie
+    {
+        molWeight   16.04;
+    }
+    thermodynamics
+    {
+        Cp          2231; //J/kg*K
+        Hf          0;
+    }
+    transport
+    {
+        mu          1.11e-05;
+        Pr          0.73;
+    }
+}
 
 // ************************************************************************* //

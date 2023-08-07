@@ -7,29 +7,35 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
+    version     2.0;
     format      ascii;
     class       volScalarField;
-    object      p;
+    object      T;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-pTank 36e5;
-pAtmo 1e5;
+Uumg            293.15;
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform $pTank;
+internalField   uniform 300.5;
 
 boundaryField
 {
     outlet
     {
-        type            zeroGradient;
+        type            inletOutlet;
+        inletValue      uniform $Uumg;
+        value           uniform $Uumg;
     }
 
     tank
     {
-        type            zeroGradient;
+        type            externalTemperature;
+
+        Ta              constant $Uumg;
+        h               uniform 5;
+        value           $internalField;
     }
 
     "(front|back)"

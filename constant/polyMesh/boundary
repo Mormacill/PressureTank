@@ -7,7 +7,7 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    format      ascii;
+    format      binary;
     class       polyBoundaryMesh;
     location    "constant/polyMesh";
     object      boundary;
@@ -16,7 +16,7 @@ FoamFile
 
 4
 (
-    inlet
+    outlet
     {
         type            patch;
         nFaces          13;

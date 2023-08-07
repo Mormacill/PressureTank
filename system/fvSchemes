@@ -16,31 +16,26 @@ FoamFile
 ddtSchemes
 {
     // For transient, replace steadyState, e.g. with Euler
-    default         steadyState;
+    default         Euler;
 }
 
 gradSchemes
 {
     default         Gauss linear;
-
-    limited         cellLimited Gauss linear 1;
-    grad(U)         $limited;
-    grad(k)         $limited;
-    grad(omega)     $limited;
 }
 
 divSchemes
 {
     default         none;
 
-    // For transient, remove "bounded"
-    div(phi,U)      bounded Gauss linearUpwind limited;
+    div(phi,U)       Gauss upwind;
+    div(phi,(p|rho)) Gauss upwind;
+    div(phi,K)       Gauss upwind;
+    div(phi,e)       Gauss upwind;
 
-    // For transient, remove "bounded"
-    turbulence      bounded Gauss limitedLinear 1;
-    div(phi,k)      $turbulence;
-    div(phi,omega)  $turbulence;
-    div(phi,epsilon) $turbulence;
+//    div(phi,k)      Gauss upwind;
+//    div(phi,omega)  Gauss upwind;
+//    div(phi,epsilon) Gauss upwind;
     div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }
 

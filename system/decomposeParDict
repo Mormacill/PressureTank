@@ -9,33 +9,30 @@ FoamFile
 {
     format      ascii;
     class       dictionary;
-    object      ;
+    object      decomposeParDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-graph
+numberOfSubdomains  4;
+
+/*
+    Main methods are:
+    1) Geometric: "simple"; "hierarchical", with ordered sorting, e.g. xyz, yxz
+    2) Scotch: "scotch", when running in serial; "ptscotch", running in parallel
+*/
+
+method              scotch;
+
+simpleCoeffs
 {
-    type            sets;
-    libs ("libsampling.so");
-    writeControl   writeTime;
-
-    interpolationScheme cellPointFace;
-
-    setFormat       raw;
-
-    sets
-    (
-        centreline
-        {
-            type    lineUniform;
-            axis    x;
-            start   ( 0  1e-6 0);
-            end     (25  1e-6 0);
-            nPoints 250;
-        }
-    );
-
-    fields      ( U );
+    n               (4 2 1); // total must match numberOfSubdomains
 }
+
+hierarchicalCoeffs
+{
+    n               (4 2 1); // total must match numberOfSubdomains
+    order           xyz;
+}
+
 
 // ************************************************************************* //
