@@ -1,13 +1,18 @@
-Vernetzung:
+### Vernetzung:
 
+```bash
 blockMesh
 extrudeMesh
+```
 
-CellZone für poröses Gebiet:
+### CellZone für poröses Gebiet:
 
+```bash
 topoSet
+```
+### Rechnen:
 
-Rechnen:
-
+```bash
 decomposePar
 mpirun -np 20 foamRun -parallel
+```
