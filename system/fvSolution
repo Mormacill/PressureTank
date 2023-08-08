@@ -51,7 +51,7 @@ solvers
 
 "(PIMPLE|PISO)"
 {
-    nOuterCorrectors 1;
+    nOuterCorrectors 3;
     nCorrectors     2;
     nNonOrthogonalCorrectors 1;
 //    pRefCell        0;

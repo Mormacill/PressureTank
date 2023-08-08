@@ -26,12 +26,12 @@ gradSchemes
 
 divSchemes
 {
-    default          Gauss linear;
+    default          none;
 
-    div(phi,U)       Gauss linear;
-    div(phi,(p|rho)) Gauss linear;
+    div(phi,U)       Gauss limitedLinear 1;
+    div(phi,(p|rho)) Gauss limitedLinear 1;
     div(phi,K)       Gauss linear;
-    div(phi,e)       Gauss linear;
+    div(phi,e)       Gauss limitedLinear 1;
 
 //    div(phi,k)      Gauss upwind;
 //    div(phi,omega)  Gauss upwind;
