@@ -23,7 +23,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         60;
+endTime         3600; //1h
 
 deltaT          0.01;
 

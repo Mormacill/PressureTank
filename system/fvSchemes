@@ -16,7 +16,7 @@ FoamFile
 ddtSchemes
 {
     // For transient, replace steadyState, e.g. with Euler
-    default         Euler;
+    default         backward;
 }
 
 gradSchemes
