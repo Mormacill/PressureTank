@@ -53,7 +53,7 @@ maxDeltaT       1;
 
 functions
 {
-    #includeFunc residuals(p,U)
+    #includeFunc residuals(name=residuals,fields=(p U e))
     #includeFunc patchAverage(name=patchAverage_front,patch=front,fields=(T p))
 }
 
