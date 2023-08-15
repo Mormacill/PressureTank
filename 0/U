@@ -13,7 +13,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-vFR #calc "((2e-3 / 60) / 360)"; //Volumenstrom
+#include "../include/vars"
+
+vFR #calc "((($vFRlmin * 0.001) / 60) / 360)"; //Volumenstrom
 
 dimensions      [0 1 -1 0 0 0 0];
 

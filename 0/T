@@ -14,26 +14,26 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Uumg            293.15;
+#include "../include/vars"
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 300.5;
+internalField   uniform $TTank;
 
 boundaryField
 {
     outlet
     {
         type            inletOutlet;
-        inletValue      uniform $Uumg;
-        value           uniform $Uumg;
+        inletValue      uniform $Tumg;
+        value           uniform $Tumg;
     }
 
     tank
     {
         type            externalTemperature;
 
-        Ta              constant $Uumg;
+        Ta              constant $Tumg;
         h               uniform 5;
         value           $internalField;
     }

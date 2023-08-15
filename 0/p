@@ -13,8 +13,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-pTank 36e5;
-pAtmo 1e5;
+#include "../include/vars"
 
 dimensions      [1 -1 -2 0 0 0 0];
 

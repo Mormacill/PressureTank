@@ -6,10 +6,28 @@
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
 
+//Tank Geometrie
 L 1.19;
 l 0.18;
 R 0.229;
 r 0.056;
 
-//Cell multiplicator
+//Cell multiplicator Netz
 cm 3;
+
+//Randbedingungen
+
+//***U***//
+//Volumenstrom in Liter/min
+vFRlmin 2;
+
+//***T***//
+//Umgebungstemperatur in K
+Tumg 293.15;
+
+//Temperatur Gas Tank in K
+TTank 300.5;
+
+//***p***//
+//Druck Tank in Pa
+pTank 36e5;
