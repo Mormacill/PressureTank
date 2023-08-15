@@ -13,15 +13,16 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-L 0.202;
-l 0.03;
-R 0.0533;
-r 0.013;
-
-meshX 232;
-meshY 54;
+#include "../include/vars"
 
 //*************************//
+
+meshX1 #calc "round($L * 100 * $cm)";
+meshY1 #calc "round($r * 100 * $cm)";
+meshX2 #calc "round($l * 100 * $cm)";
+meshY2 $meshY1;
+meshX3 $meshX1;
+meshY3 #calc "round(($R * 100 * $cm) - $meshY1)";
 
 Rcorr #calc "$R - $r";
 rneg  #calc "- $r";
@@ -61,15 +62,15 @@ blocks
 
     //(y x z)
     hex (0 3 2 1 8 11 10 9) //1
-    (13 202 1)
+    ($meshY1 $meshX1 1)
     simpleGrading (1 1 1)
 
     hex (5 4 3 0 13 12 11 8) //2
-    (13 30 1)
+    ($meshY2 $meshX2 1)
     simpleGrading (1 1 1)
 
     hex (6 0 1 7 14 8 9 15) //3
-    (41 202 1)
+    ($meshY3 $meshX3 1)
     simpleGrading (1 1 1)
 
 

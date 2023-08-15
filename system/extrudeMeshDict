@@ -13,6 +13,11 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../include/vars"
+
+lneg #calc "- $l";
+rneg #calc "- $r";
+
 constructFrom patch;
 sourceCase "$FOAM_CASE";
 
@@ -23,7 +28,7 @@ extrudeModel        wedge;
 
 sectorCoeffs
 {
-    axisPt          (-0.03 -0.013 0);
+    axisPt          ($lneg $rneg 0);
     axis            (1 0 0);
     angle           1;
 }
