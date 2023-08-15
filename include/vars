@@ -5,8 +5,17 @@
     \\  /    A nd           | Version:  11
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
+/*
+//Tank Geometrie 1
+L 0.202;
+l 0.03;
+R 0.0533;
+r 0.013;
 
-//Tank Geometrie
+//Cell multiplicator Netz
+cm 10;
+*/
+//Tank Geometrie 2
 L 1.19;
 l 0.18;
 R 0.229;
